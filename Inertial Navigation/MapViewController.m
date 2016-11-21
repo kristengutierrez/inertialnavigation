@@ -68,8 +68,8 @@
   _line = [GMSPolyline polylineWithPath:_path];
 //  _rectangle.map = _mapView;
 
-  _line.strokeWidth = 2.f;
-  _line.strokeColor = [UIColor blueColor];
+  _line.strokeWidth = 4.f;
+  _line.strokeColor = [UIColor colorWithRed:14.0/255 green:122.0/255 blue:254.0/255 alpha:1.0];
   _line.map = _mapView;
   
   _locationManager = [[CLLocationManager alloc] init];
