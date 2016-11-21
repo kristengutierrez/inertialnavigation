@@ -191,10 +191,10 @@ CLLocation *newLocation = [_locations lastObject];
   
 }
 
-- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-  [_path addCoordinate:coordinate];
-  [_line setPath:_path];
-}
+//- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+//  [_path addCoordinate:coordinate];
+//  [_line setPath:_path];
+//}
 
 - (void)viewWillDisappear:(BOOL)animated
 {
