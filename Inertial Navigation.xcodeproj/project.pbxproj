@@ -12,6 +12,9 @@
 		173E9D2B1DDA904A00DBE14E /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E9D2A1DDA904A00DBE14E /* CoreMotion.framework */; };
 		173E9D311DDE63C900DBE14E /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173E9D301DDE63C900DBE14E /* ImageViewController.m */; };
 		173E9D341DDE658A00DBE14E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E9D331DDE658A00DBE14E /* MobileCoreServices.framework */; };
+		173E9D361DDFE55600DBE14E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173E9D351DDFE55600DBE14E /* CoreData.framework */; };
+		173E9D7B1DDFE6C400DBE14E /* iNav.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 173E9D791DDFE6C400DBE14E /* iNav.xcdatamodeld */; };
+		173E9D851DE254A300DBE14E /* MathController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173E9D841DE254A300DBE14E /* MathController.m */; };
 		17435C531DA2D0CF00AD27A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C521DA2D0CF00AD27A4 /* main.m */; };
 		17435C561DA2D0CF00AD27A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C551DA2D0CF00AD27A4 /* AppDelegate.m */; };
 		17435C591DA2D0CF00AD27A4 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17435C581DA2D0CF00AD27A4 /* MapViewController.m */; };
@@ -38,6 +41,10 @@
 		173E9D301DDE63C900DBE14E /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		173E9D321DDE63E500DBE14E /* ImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		173E9D331DDE658A00DBE14E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		173E9D351DDFE55600DBE14E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		173E9D7A1DDFE6C400DBE14E /* iNav.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iNav.xcdatamodel; sourceTree = "<group>"; };
+		173E9D841DE254A300DBE14E /* MathController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathController.m; sourceTree = "<group>"; };
+		173E9D861DE254B000DBE14E /* MathController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathController.h; sourceTree = "<group>"; };
 		17435C4E1DA2D0CF00AD27A4 /* Inertial Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Inertial Navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17435C521DA2D0CF00AD27A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		17435C541DA2D0CF00AD27A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173E9D361DDFE55600DBE14E /* CoreData.framework in Frameworks */,
 				173E9D341DDE658A00DBE14E /* MobileCoreServices.framework in Frameworks */,
 				173E9D2B1DDA904A00DBE14E /* CoreMotion.framework in Frameworks */,
 				173E9CE81DD5889400DBE14E /* CoreLocation.framework in Frameworks */,
@@ -107,6 +115,8 @@
 				1721D0A21DC827B2003F1DF7 /* Location.gpx */,
 				17435C541DA2D0CF00AD27A4 /* AppDelegate.h */,
 				17435C551DA2D0CF00AD27A4 /* AppDelegate.m */,
+				173E9D861DE254B000DBE14E /* MathController.h */,
+				173E9D841DE254A300DBE14E /* MathController.m */,
 				17435C571DA2D0CF00AD27A4 /* MapViewController.h */,
 				17435C581DA2D0CF00AD27A4 /* MapViewController.m */,
 				17CB785A1DB0352900FEE21D /* SettingsViewController.h */,
@@ -130,6 +140,7 @@
 				17435C5F1DA2D0CF00AD27A4 /* LaunchScreen.storyboard */,
 				17CB785F1DBAE37B00FEE21D /* GoogleService-Info.plist */,
 				17435C621DA2D0CF00AD27A4 /* Info.plist */,
+				173E9D791DDFE6C400DBE14E /* iNav.xcdatamodeld */,
 				17435C511DA2D0CF00AD27A4 /* Supporting Files */,
 			);
 			path = "Inertial Navigation";
@@ -146,6 +157,7 @@
 		C2492245BE9A2DE2F021688D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				173E9D351DDFE55600DBE14E /* CoreData.framework */,
 				173E9D331DDE658A00DBE14E /* MobileCoreServices.framework */,
 				173E9D2A1DDA904A00DBE14E /* CoreMotion.framework */,
 				173E9CE71DD5889400DBE14E /* CoreLocation.framework */,
@@ -199,6 +211,11 @@
 					17435C4D1DA2D0CF00AD27A4 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 8EQQ5TWMWC;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -290,8 +307,10 @@
 				17EFBC1F1DA6C3860067689B /* SignInViewController.m in Sources */,
 				1799AFCE1DA9718D00F8B5E3 /* AppState.m in Sources */,
 				17435C591DA2D0CF00AD27A4 /* MapViewController.m in Sources */,
+				173E9D7B1DDFE6C400DBE14E /* iNav.xcdatamodeld in Sources */,
 				17CB78591DB0351100FEE21D /* SettingsViewController.m in Sources */,
 				173E9D311DDE63C900DBE14E /* ImageViewController.m in Sources */,
+				173E9D851DE254A300DBE14E /* MathController.m in Sources */,
 				1799AFD51DAB2FB000F8B5E3 /* Constants.m in Sources */,
 				17435C701DA2E72F00AD27A4 /* UploadedMapsViewController.m in Sources */,
 				1799AFD11DAB2E8600F8B5E3 /* Measurements.m in Sources */,
@@ -459,6 +478,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		173E9D791DDFE6C400DBE14E /* iNav.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				173E9D7A1DDFE6C400DBE14E /* iNav.xcdatamodel */,
+			);
+			currentVersion = 173E9D7A1DDFE6C400DBE14E /* iNav.xcdatamodel */;
+			path = iNav.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 17435C461DA2D0CE00AD27A4 /* Project object */;
 }

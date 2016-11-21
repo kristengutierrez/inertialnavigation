@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +34,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fQZ-ms-tNx"/>
                                     <barButtonItem title="Start Tracking" width="192" id="1ng-1H-6vJ">
                                         <connections>
-                                            <action selector="didTapStartTracking:" destination="A5y-s4-5vL" id="Woa-Qi-pfk"/>
+                                            <action selector="didTapStartTracking:" destination="A5y-s4-5vL" id="c9U-b9-KiC"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="x3g-8U-EQI"/>
@@ -220,10 +221,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RcI-Dr-NgZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="480"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RcI-Dr-NgZ" secondAttribute="height" multiplier="1:1" id="EHg-cW-Jkk"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIP-5S-1rR">
-                                <rect key="frame" x="138" y="585" width="98" height="30"/>
+                                <rect key="frame" x="138" y="517" width="98" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="mXY-UL-A1q"/>
                                 </constraints>
@@ -233,13 +237,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pIP-5S-1rR" firstAttribute="centerX" secondItem="cDu-x7-lb7" secondAttribute="centerX" id="9cg-V5-FRL"/>
-                            <constraint firstItem="pIP-5S-1rR" firstAttribute="top" secondItem="RcI-Dr-NgZ" secondAttribute="bottom" constant="41" id="DHc-uJ-UKR"/>
+                            <constraint firstItem="pIP-5S-1rR" firstAttribute="top" secondItem="RcI-Dr-NgZ" secondAttribute="bottom" constant="78" id="DHc-uJ-UKR"/>
                             <constraint firstAttribute="trailing" secondItem="RcI-Dr-NgZ" secondAttribute="trailing" id="K82-uh-5q0"/>
                             <constraint firstItem="RcI-Dr-NgZ" firstAttribute="leading" secondItem="cDu-x7-lb7" secondAttribute="leading" id="NaR-nb-NYb"/>
                             <constraint firstItem="RcI-Dr-NgZ" firstAttribute="centerX" secondItem="cDu-x7-lb7" secondAttribute="centerX" id="UZe-fc-GkE"/>
-                            <constraint firstItem="y0u-xW-tWd" firstAttribute="top" secondItem="pIP-5S-1rR" secondAttribute="bottom" constant="8" symbolic="YES" id="YXm-xd-z7Q"/>
+                            <constraint firstItem="y0u-xW-tWd" firstAttribute="top" secondItem="pIP-5S-1rR" secondAttribute="bottom" constant="76" id="YXm-xd-z7Q"/>
                             <constraint firstItem="RcI-Dr-NgZ" firstAttribute="top" secondItem="JzS-dL-Hgy" secondAttribute="bottom" id="evn-Gc-7gF"/>
-                            <constraint firstItem="pIP-5S-1rR" firstAttribute="top" secondItem="RcI-Dr-NgZ" secondAttribute="bottom" constant="41" id="sgV-jl-LEZ"/>
+                            <constraint firstItem="pIP-5S-1rR" firstAttribute="top" secondItem="RcI-Dr-NgZ" secondAttribute="bottom" constant="78" id="sgV-jl-LEZ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -340,7 +344,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ic-eL-6VF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GFz-yE-3wm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GFz-yE-3wm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
