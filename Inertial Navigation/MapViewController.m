@@ -131,7 +131,7 @@
 
 
 - (IBAction)getCurrentLocation:(id)sender {
-  
+    [self.locationManager startUpdatingLocation];
 CLLocation *newLocation = [_locations lastObject];
   GMSCameraPosition *cameraPosition = [GMSCameraPosition cameraWithLatitude:newLocation.coordinate.latitude longitude:newLocation.coordinate.longitude zoom:15.0];
                                         [self.mapView animateToCameraPosition:cameraPosition];
