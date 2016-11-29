@@ -231,13 +231,15 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="mXY-UL-A1q"/>
                                 </constraints>
-                                <state key="normal" title="Select Photo"/>
+                                <state key="normal" title="Select Photo">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="selectPhoto:" destination="Wnz-Sc-ejw" eventType="touchUpInside" id="qDC-Zv-XbC"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.6287802616" green="0.79662801429999996" blue="0.83561639210000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pIP-5S-1rR" firstAttribute="centerX" secondItem="cDu-x7-lb7" secondAttribute="centerX" id="9cg-V5-FRL"/>
                             <constraint firstItem="pIP-5S-1rR" firstAttribute="top" secondItem="RcI-Dr-NgZ" secondAttribute="bottom" constant="78" id="DHc-uJ-UKR"/>
@@ -287,33 +289,39 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="52" id="J6j-I5-GRo"/>
                                 </constraints>
-                                <state key="normal" title="Sign In"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapSignIn:" destination="csU-lF-LCV" eventType="touchUpInside" id="jr5-SC-ghO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU7-yn-ITv">
                                 <rect key="frame" x="134" y="366" width="107" height="30"/>
-                                <state key="normal" title="Create Account"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapSignUp:" destination="csU-lF-LCV" eventType="touchUpInside" id="JMz-Oj-Sh2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cac-ST-Z0M">
                                 <rect key="frame" x="118" y="555" width="138" height="30"/>
-                                <state key="normal" title="Forgot Password"/>
+                                <state key="normal" title="Forgot Password">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didRequestPasswordReset:" destination="csU-lF-LCV" eventType="touchUpInside" id="CRR-zi-9dj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inertial Navigation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNa-yO-M4S">
-                                <rect key="frame" x="18" y="130" width="339" height="56"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="47"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iNav" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNa-yO-M4S">
+                                <rect key="frame" x="90" y="106" width="195" height="123"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="104"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.6287802616" green="0.79662801429999996" blue="0.83561639210000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Q9b-Sc-reL" firstAttribute="centerX" secondItem="he2-Re-wYK" secondAttribute="centerX" id="Alm-ES-N6r"/>
                             <constraint firstItem="cac-ST-Z0M" firstAttribute="centerX" secondItem="he2-Re-wYK" secondAttribute="centerX" id="Bnn-Ex-0dS"/>
@@ -325,7 +333,7 @@
                             <constraint firstItem="kNa-yO-M4S" firstAttribute="centerX" secondItem="he2-Re-wYK" secondAttribute="centerX" id="bN7-7y-jsV"/>
                             <constraint firstItem="Lss-0K-4OU" firstAttribute="centerX" secondItem="he2-Re-wYK" secondAttribute="centerX" id="eJl-Y5-52x"/>
                             <constraint firstItem="qIk-Fg-456" firstAttribute="centerX" secondItem="he2-Re-wYK" secondAttribute="centerX" id="ebx-gN-KaC"/>
-                            <constraint firstItem="kNa-yO-M4S" firstAttribute="top" secondItem="EKG-X5-Xlw" secondAttribute="bottom" constant="66" id="j3I-fa-Xm7"/>
+                            <constraint firstItem="kNa-yO-M4S" firstAttribute="top" secondItem="EKG-X5-Xlw" secondAttribute="bottom" constant="42" id="j3I-fa-Xm7"/>
                             <constraint firstItem="Lss-0K-4OU" firstAttribute="top" secondItem="Q9b-Sc-reL" secondAttribute="bottom" constant="8" symbolic="YES" id="nR3-XN-LNo"/>
                             <constraint firstItem="Q9b-Sc-reL" firstAttribute="leading" secondItem="cac-ST-Z0M" secondAttribute="leading" id="tUv-Dv-A40"/>
                             <constraint firstItem="UU7-yn-ITv" firstAttribute="centerX" secondItem="he2-Re-wYK" secondAttribute="centerX" id="wN5-9x-qNq"/>
@@ -347,7 +355,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ic-eL-6VF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GFz-yE-3wm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GFz-yE-3wm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

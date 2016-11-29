@@ -1,11 +1,14 @@
 #import "MathController.h"
 
+@interface MathController ()
 
+@end
 
-static float const metersInMile = 1609.344;
 
 @implementation MathController
+static float const metersInMile = 1609.344;
 
+//CLLocationCoordinate2D oldLoc = ((CLLocation *)self.locations.lastObject.coordinate;
 
 + (NSString *)stringifyDistance:(float)meters
 {
@@ -32,5 +35,27 @@ static float const metersInMile = 1609.344;
 		return [NSString stringWithFormat: @"%isec", remainingSeconds];
 	}
 }
+
+-(CLLocation*) calculateNewLatLon:(CLLocation*) pt by:(float)distance with:(float) heading{
+
+  _latitude = asin(sin(pt.coordinate.latitude)*cos(distance)+cos(pt.coordinate.longitude)*sin(distance)*cos(heading));
+  _longitude = fmod(pt.coordinate.latitude-asin(sin(heading)*sin(distance)/cos(pt.coordinate.longitude)) + M_PI, 2*M_PI) - M_PI;
+  CLLocation *newLoc = [[CLLocation alloc] initWithLatitude:_latitude longitude:_longitude];
+
+  return(newLoc);
+}
+
+-(float) DegreesToRadians:(float) degrees
+{
+  return degrees* M_PI / 180;
+}
+
+-(float) RadiansToDegrees:(float) radians
+{
+  return radians * 180 / M_PI;
+}
+
+
+
   @end
 
