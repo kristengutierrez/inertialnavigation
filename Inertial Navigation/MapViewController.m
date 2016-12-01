@@ -22,8 +22,9 @@
 @property(strong,nonatomic) NSMutableArray *stepCountLog;
 @property (atomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, weak) IBOutlet UIButton *tracking;
+@property (readonly, nonatomic) CLLocationDirection trueHeading;
 - (IBAction)getCurrentLocation:(id)sender;
-
+@property (strong, nonatomic) MathController *mathCon;
 
 @property int seconds;
 @property float distance;
@@ -102,7 +103,7 @@
   
   // Movement threshold for new events.
   self.locationManager.distanceFilter = 0; // meters
-  
+  [self.locationManager startUpdatingHeading];
   [self.locationManager startUpdatingLocation];
 }
 
@@ -172,7 +173,13 @@ CLLocation *newLocation = [_locations lastObject];
     //GMSGroundOverlay *overlay =
     //[GMSGroundOverlay groundOverlayWithBounds:overlayBounds icon:icon];
     //[self.mapView addOverlay:[MKPolyline polylineWithCoordinates:coords count:2]];
-    CLLocationCoordinate2D newLoc = ((CLLocation *)self.locations.lastObject).coordinate;
+   // CLLocationCoordinate2D newLoc = ((CLLocation *)self.locations.lastObject).coordinate;
+   CLLocation *oldLoc = ((CLLocation *)self.locations[self.locations.count - 1]);
+   float distance = [newLocation distanceFromLocation:self.locations.lastObject];
+   float radians = [self.mathCon DegreesToRadians:_trueHeading];
+   CLLocation *newLocation = [self.mathCon calculateNewLatLon:oldLoc by:distance with:radians];
+   //CLLocationCoordinate2D newLoc = newLocation.coordinate;
+   CLLocationCoordinate2D newLoc = ((CLLocation *)self.locations.lastObject).coordinate;
     [_path addCoordinate:newLoc];
     [_line setPath:_path];
 //  [_line setMap:_mapView];

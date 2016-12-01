@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UploadedMapsViewController : UIViewController 
-
+@property (nonatomic, strong) IBOutlet UIImageView *image;
+@property (nonatomic, strong) UIImage *myImage;
+@property (nonatomic, strong) IBOutlet UILabel *imageName;
 
 @end

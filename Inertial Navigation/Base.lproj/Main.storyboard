@@ -178,7 +178,7 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xPL-CD-llK">
-                                <rect key="frame" x="0.0" y="579" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem image="add button" id="hNP-yl-0na">
                                         <connections>
@@ -187,6 +187,21 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YeE-Tr-qZy">
+                                <rect key="frame" x="9" y="77" width="112" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77E-Fu-cbl">
+                                <rect key="frame" x="142" y="109" width="180" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FDf-NZ-z6b">
+                                <rect key="frame" x="9" y="77" width="112" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -200,13 +215,15 @@
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="XVE-z2-QJ6"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="image" destination="FDf-NZ-z6b" id="gJp-SF-jqX"/>
+                        <outlet property="imageName" destination="77E-Fu-cbl" id="PGg-Jn-qYV"/>
                         <outlet property="tableView" destination="iaR-a8-1jS" id="sDC-1c-i1G"/>
                         <segue destination="Wnz-Sc-ejw" kind="show" identifier="clickedPlus" id="AOi-pp-jdU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykl-dp-yPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097" y="243"/>
+            <point key="canvasLocation" x="1096.8" y="242.42878560719643"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="Tha-7m-jGC">
@@ -221,13 +238,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RcI-Dr-NgZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RcI-Dr-NgZ" secondAttribute="height" multiplier="1:1" id="EHg-cW-Jkk"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIP-5S-1rR">
-                                <rect key="frame" x="138" y="517" width="98" height="30"/>
+                                <rect key="frame" x="138" y="473" width="98" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="mXY-UL-A1q"/>
                                 </constraints>
@@ -253,11 +270,12 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="RcI-Dr-NgZ" id="40d-A9-Djq"/>
+                        <segue destination="M6f-uJ-wGs" kind="show" identifier="backToUp" id="h9c-rS-T5B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfC-JM-eGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1869.5999999999999" y="243.32833583208398"/>
+            <point key="canvasLocation" x="1895" y="250"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="n0A-V8-4SP">
@@ -355,7 +373,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Ic-eL-6VF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GFz-yE-3wm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GFz-yE-3wm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -375,4 +393,7 @@
         <image name="add button" width="22" height="22"/>
         <image name="plus" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="h9c-rS-T5B"/>
+    </inferredMetricsTieBreakers>
 </document>

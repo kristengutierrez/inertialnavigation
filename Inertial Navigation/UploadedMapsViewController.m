@@ -10,20 +10,47 @@
 
 @interface UploadedMapsViewController ()<UITableViewDataSource, UITableViewDelegate>
 
-@property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic) NSArray *content;
 
 @end
 
 @implementation UploadedMapsViewController
 
-//UITableView *tableView = [[UITableView alloc] init];
 
-//tableView.delegate = self;
-//tableView.dataSource = self;
-//[_mapsTable UITableViewCell.self forCellReuseIdentifier:@"mapsCell" ];
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
+  
+  
+  
   // Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+  return _content.count;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  static NSString *cellIdentifier = @"cellIdentifier";
+  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+  if(cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    cell.textLabel.text =  _imageName.text;
+  }
+  return cell;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,14 +58,8 @@
   // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 4;
-}
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  //UITableViewCell *cell = [mapsTable dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
- // return cell;
-//}
+
 
 -(IBAction)didSelectPlusButton:(id)sender {
   [self performSegueWithIdentifier:@"clickedPlus" sender: self];

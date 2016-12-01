@@ -55,14 +55,25 @@
 }
 - (IBAction)selectPhoto:(id)sender {
   
-  
+  //UITextField *inputTextField;
   UIAlertController *namePhoto = [UIAlertController alertControllerWithTitle:nil message:@"Please name this photo" preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    NSArray *inputTextFields = namePhoto.textFields;
+    UITextField *nameField = inputTextFields[0];
+    if(self.uploadedMapsView == nil) {
+      UploadedMapsViewController *uploadedView = [[UploadedMapsViewController alloc] initWithNibName:@"uploadedView" bundle:nil];
+      
+      self.uploadedMapsView = uploadedView;
+      uploadedView.image.image = _imageView.image;
+      [self.navigationController pushViewController:uploadedView animated:YES];
+    }
+    
     [namePhoto dismissViewControllerAnimated:YES completion:nil];
     [[self navigationController] popViewControllerAnimated:YES];
   }];
   [namePhoto addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
   }];
   
   UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -84,16 +95,33 @@
   UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
   self.imageView.image = selectedImage;
   [picker dismissViewControllerAnimated:YES completion:NULL];
+  [self performSegueWithIdentifier:@"backToUp" sender:self];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
   [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
+//-(IBAction)sendImage:(id)sender {
+//  
+//  if(self.uploadedMapsView == nil) {
+//    UploadedMapsViewController *uploadedView = [[UploadedMapsViewController alloc] initWithNibName:@"uploadedView" bundle:nil];
+//    
+//    self.uploadedMapsView = uploadedView;
+//    uploadedView.image.image = _imageView.image;
+//    [self.navigationController pushViewController:uploadedView animated:YES];
+//  }
+
+  
+  
+  
 
 
 
-
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  UploadedMapsViewController *uploadedView = (UploadedMapsViewController *)segue.destinationViewController;
+  uploadedView.image.image = _imageView.image;
+}
 
 
 
