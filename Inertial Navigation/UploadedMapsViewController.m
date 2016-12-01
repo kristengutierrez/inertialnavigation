@@ -49,6 +49,7 @@
   if(cell == nil) {
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     cell.textLabel.text =  _imageName.text;
+    cell.imageView.image = _myImage;
   }
   return cell;
 }
