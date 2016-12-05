@@ -13,5 +13,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) UploadedMapsViewController *uploadedMapsView;
 
--(IBAction)sendImage:(id)sender;
+//-(IBAction)sendImage:(id)sender;
 @end

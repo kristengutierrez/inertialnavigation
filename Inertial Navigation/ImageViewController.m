@@ -13,7 +13,7 @@
 
 @interface ImageViewController ()
 
-
+@property(nonatomic,strong) UIImage *selectedImage;
 
 @end
 
@@ -43,10 +43,6 @@
     //newMedia = YES;
     //iscamera = 0;
   }
-  
-  
-  
-  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +51,7 @@
 }
 - (IBAction)selectPhoto:(id)sender {
   
-  //UITextField *inputTextField;
+  ///UITextField *inputTextField;
   UIAlertController *namePhoto = [UIAlertController alertControllerWithTitle:nil message:@"Please name this photo" preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     NSArray *inputTextFields = namePhoto.textFields;
@@ -64,8 +60,8 @@
       UploadedMapsViewController *uploadedView = [[UploadedMapsViewController alloc] initWithNibName:@"uploadedView" bundle:nil];
       
       self.uploadedMapsView = uploadedView;
-      uploadedView.image.image = _imageView.image;
-      [self.navigationController pushViewController:uploadedView animated:YES];
+      uploadedView.image = _selectedImage;
+      //[self.navigationController pushViewController:uploadedView animated:YES];
     }
     
     [namePhoto dismissViewControllerAnimated:YES completion:nil];
@@ -88,14 +84,15 @@
   picker.delegate = self;
   picker.allowsEditing = YES;
   picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-  [self presentViewController:picker animated:YES completion:NULL];
+  //[self presentViewController:picker animated:YES completion:NULL];
+  [self performSegueWithIdentifier:@"backToUp" sender:self];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
   UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
   self.imageView.image = selectedImage;
   [picker dismissViewControllerAnimated:YES completion:NULL];
-  [self performSegueWithIdentifier:@"backToUp" sender:self];
+  //[self performSegueWithIdentifier:@"backToUp" sender:self];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -111,7 +108,7 @@
 //    uploadedView.image.image = _imageView.image;
 //    [self.navigationController pushViewController:uploadedView animated:YES];
 //  }
-
+//}
   
   
   
@@ -120,7 +117,7 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   UploadedMapsViewController *uploadedView = (UploadedMapsViewController *)segue.destinationViewController;
-  uploadedView.image.image = _imageView.image;
+  uploadedView.image = _selectedImage;
 }
 
 

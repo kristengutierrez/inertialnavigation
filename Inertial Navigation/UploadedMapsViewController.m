@@ -8,6 +8,7 @@
 
 #import "UploadedMapsViewController.h"
 
+
 @interface UploadedMapsViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property(strong, nonatomic) IBOutlet UITableView *tableView;
@@ -28,6 +29,7 @@
   
   
   
+  
   // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -44,12 +46,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  static NSString *cellIdentifier = @"cellIdentifier";
-  UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+  static NSString *detailCell = @"DetailCell";
+  DetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:detailCell];
   if(cell == nil) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    cell.textLabel.text =  _imageName.text;
-    cell.imageView.image = _myImage;
+    cell = [[DetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailCell];
+    //cell.image.image = myImage;
+    cell.imageLabel.text = @"Hello";
   }
   return cell;
 }

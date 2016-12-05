@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailCell.h"
 
-@interface UploadedMapsViewController : UIViewController 
-@property (nonatomic, strong) IBOutlet UIImageView *image;
-@property (nonatomic, strong) UIImage *myImage;
-@property (nonatomic, strong) IBOutlet UILabel *imageName;
-
+@interface UploadedMapsViewController : UIViewController
+@property (nonatomic, strong) IBOutlet DetailCell *detailCell;
+@property (nonatomic, strong) UIImage *image;
 @end
