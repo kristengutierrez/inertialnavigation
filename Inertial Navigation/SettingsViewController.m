@@ -68,6 +68,7 @@
           [credentials addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull passwordField) {
             passwordField.placeholder = @"Password";
             passwordField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            passwordField.secureTextEntry = YES;
               _password = passwordField.text;
           }];
 
@@ -130,18 +131,19 @@
                                       }];
                                       [resetEmail addAction:ok];
                                       [self presentViewController:resetEmail animated:YES completion:nil];
-                                      
+                                      //[self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
                                       NSError *signOutError;
                                       BOOL status = [[FIRAuth auth] signOut:&signOutError];
                                       if (!status) {
                                         NSLog(@"Error signing out: %@", signOutError);
                                         return;
                                       }
-
+//[self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
                                     }
                                   }];
+ 
+//[self.navigationController popToRootViewControllerAnimated:YES];
   [self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
-
 }
 
 - (IBAction)didTapDeleteAccount:(id)sender {

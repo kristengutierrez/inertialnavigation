@@ -26,7 +26,7 @@
 
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
-  
+  //[self.view addSubview:_tableView];
   
   
   
