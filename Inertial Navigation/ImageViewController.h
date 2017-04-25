@@ -10,8 +10,8 @@
 #import "UploadedMapsViewController.h"
 
 @interface ImageViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
+
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) UploadedMapsViewController *uploadedMapsView;
 
-//-(IBAction)sendImage:(id)sender;
 @end

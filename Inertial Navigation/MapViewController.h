@@ -14,5 +14,6 @@
 @interface MapViewController : UIViewController <GMSMapViewDelegate, MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end
 

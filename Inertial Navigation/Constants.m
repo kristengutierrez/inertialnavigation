@@ -13,5 +13,4 @@
 NSString *const NotificationKeysSignedIn = @"onSignInCompleted";
 NSString *const SegueToMap = @"SegueToMap";
 
-
 @end

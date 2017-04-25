@@ -18,39 +18,27 @@
 
 @implementation UploadedMapsViewController
 
-
 - (void)viewDidLoad {
   [super viewDidLoad];
   
   self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
-  //[self.view addSubview:_tableView];
-  
-  
-  
-  // Do any additional setup after loading the view, typically from a nib.
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return _content.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *detailCell = @"DetailCell";
   DetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:detailCell];
   if(cell == nil) {
     cell = [[DetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detailCell];
-    //cell.image.image = myImage;
     cell.imageLabel.text = @"Hello";
   }
   return cell;
@@ -60,9 +48,6 @@
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
 }
-
-
-
 
 -(IBAction)didSelectPlusButton:(id)sender {
   [self performSegueWithIdentifier:@"clickedPlus" sender: self];

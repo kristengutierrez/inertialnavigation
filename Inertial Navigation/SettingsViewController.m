@@ -11,17 +11,16 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+
 @property (nonatomic, weak) NSString *email;
 @property (nonatomic, weak) NSString *password;
 
 @end
 
 
-
 @implementation SettingsViewController
 
 - (IBAction)didTapLogout:(id)sender {
-  
   NSError *signOutError;
   BOOL status = [[FIRAuth auth] signOut:&signOutError];
   if (!status) {
@@ -29,7 +28,6 @@
     return;
   }
   [self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
-
 }
 
 - (IBAction)didTapChangeEmail:(id)sender {
@@ -39,14 +37,13 @@
     textField.placeholder = @"example@inertialnav.com";
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
   }];
+  
   UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     [user updateEmail:changeEmail.textFields.firstObject.text completion:^(NSError *_Nullable error) {
       if (error) {
-        // An error happened.
         NSLog(@"Couldn't update email");
         UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error" message:@"Could not update email, please try again" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-          // [error dismissViewControllerAnimated:YES completion:nil];
         }];
         [error addAction:ok];
         [self presentViewController:error animated:YES completion:nil];
@@ -63,25 +60,22 @@
           [credentials addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull emailField) {
             emailField.placeholder = @"Email";
             emailField.clearButtonMode = UITextFieldViewModeWhileEditing;
-              _email = emailField.text;
+            _email = emailField.text;
           }];
           [credentials addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull passwordField) {
             passwordField.placeholder = @"Password";
             passwordField.clearButtonMode = UITextFieldViewModeWhileEditing;
             passwordField.secureTextEntry = YES;
-              _password = passwordField.text;
+            _password = passwordField.text;
           }];
-
+          
           UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
             FIRUser *user = [FIRAuth auth].currentUser;
             FIRAuthCredential *credential;
-            //credential = FIREmailPasswordAuthProvider.credentialWithEmail(_email, password: _password)
-            //+ (FIRAuthCredential *)credentialWithEmail:(NSString *)email password:(NSString *)password;
-            // Prompt the user to re-provide their sign-in credentials
+            //INFO: Prompting the user to re-provide their sign-in credentials
             [user reauthenticateWithCredential:credential completion:^(NSError *_Nullable error) {
               if (error) {
-                // An error happened.
+                NSLog(@"User could not be re-authenticated: %@", error);
               } else {
                 // User re-authenticated.
               }
@@ -90,59 +84,36 @@
           }];
           [credentials addAction:ok];
           [self presentViewController:credentials animated:YES completion:nil];
-                  //[self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
-          
         }];
         [emailUpdated addAction:ok];
         [self presentViewController:emailUpdated animated:YES completion:nil];
-        // Email updated.
       }
     }];
   }];
   [changeEmail addAction:ok];
   [self presentViewController:changeEmail animated:YES completion:nil];
-  
-
- // FIRAuthCredential *credential;
-  
-  // Prompt the user to re-provide their sign-in credentials
-  
- // [user reauthenticateWithCredential:credential completion:^(NSError *_Nullable error) {
-    //if (error) {
-     // // An error happened.
-   // } else {
-    //  // User re-authenticated.
-  //  }
- // }];
 }
 
 - (IBAction)didTapChangePassword:(id)sender {
   NSString *email = [FIRAuth auth].currentUser.email;
-
-  [[FIRAuth auth] sendPasswordResetWithEmail:email
-                                  completion:^(NSError *_Nullable error) {
-                                    if (error) {
-                                      // An error happened.
-                                    } else {
-                                      // Password reset email sent.
-                                      UIAlertController *resetEmail = [UIAlertController alertControllerWithTitle:nil message:@"Password reset request sent. Please check your email." preferredStyle:UIAlertControllerStyleAlert];
-                                      UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                        [resetEmail dismissViewControllerAnimated:YES completion:nil];
-                                      }];
-                                      [resetEmail addAction:ok];
-                                      [self presentViewController:resetEmail animated:YES completion:nil];
-                                      //[self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
-                                      NSError *signOutError;
-                                      BOOL status = [[FIRAuth auth] signOut:&signOutError];
-                                      if (!status) {
-                                        NSLog(@"Error signing out: %@", signOutError);
-                                        return;
-                                      }
-//[self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
-                                    }
-                                  }];
- 
-//[self.navigationController popToRootViewControllerAnimated:YES];
+  [[FIRAuth auth] sendPasswordResetWithEmail:email completion:^(NSError *_Nullable error) {
+    if (error) {
+      NSLog(@"Could not send password reset: %@", error);
+    } else {
+      UIAlertController *resetEmail = [UIAlertController alertControllerWithTitle:nil message:@"Password reset request sent. Please check your email." preferredStyle:UIAlertControllerStyleAlert];
+      UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [resetEmail dismissViewControllerAnimated:YES completion:nil];
+      }];
+      [resetEmail addAction:ok];
+      [self presentViewController:resetEmail animated:YES completion:nil];
+      NSError *signOutError;
+      BOOL status = [[FIRAuth auth] signOut:&signOutError];
+      if (!status) {
+        NSLog(@"Error signing out: %@", signOutError);
+        return;
+      }
+    }
+  }];
   [self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
 }
 
@@ -152,32 +123,19 @@
   UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
       [user deleteWithCompletion:^(NSError *_Nullable error) {
         if (error) {
-          // An error happened.
+          NSLog(@"Could not delete account: %@", error);
         } else {
           //account deleted
           [self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
         }
     }];
   }];
-      
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-      [deleteAccount dismissViewControllerAnimated:YES completion:nil];
-    }];
-    [deleteAccount addAction:ok];
-    [deleteAccount addAction:cancel];
-    [self presentViewController:deleteAccount animated:YES completion:nil];
-
-  
-//  dispatch_async(dispatch_get_main_queue(), ^{
-//    [self.navigationController popToRootViewControllerAnimated:YES];
-//  });
-  //[self.navigationController popToRootViewControllerAnimated:YES];
- //[self performSegueWithIdentifier:@"LogoutSegue" sender:nil];
-}
-
-
-
-
-
+  UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [deleteAccount dismissViewControllerAnimated:YES completion:nil];
+  }];
+  [deleteAccount addAction:ok];
+  [deleteAccount addAction:cancel];
+  [self presentViewController:deleteAccount animated:YES completion:nil];
+  }
 
 @end

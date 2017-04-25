@@ -14,15 +14,10 @@
 @implementation Measurements
 
 + (void)sendLoginEvent {
-  
 }
-
 + (void)sendLogoutEvent {
-  
 }
-
 + (void)sendMessageEvent {
-  
 }
 
 @end

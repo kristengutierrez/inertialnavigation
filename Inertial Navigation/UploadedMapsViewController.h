@@ -10,6 +10,8 @@
 #import "DetailCell.h"
 
 @interface UploadedMapsViewController : UIViewController
+
 @property (nonatomic, strong) IBOutlet DetailCell *detailCell;
 @property (nonatomic, strong) UIImage *image;
+
 @end

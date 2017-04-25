@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface Measurements : NSObject
+
 + (void)sendLoginEvent;
 + (void)sendLogoutEvent;
 + (void)sendMessageEvent;
+
 @end

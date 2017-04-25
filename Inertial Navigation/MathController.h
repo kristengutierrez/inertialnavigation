@@ -12,9 +12,7 @@
 @property float distance;
 
 -(CLLocation*) calculateNewLatLon:(CLLocation*) pt by:(float)distance with:(float) heading;
-
 -(float) DegreesToRadians:(float) degrees;
-
 -(float) RadiansToDegrees:(float) radians;
 
 @ end

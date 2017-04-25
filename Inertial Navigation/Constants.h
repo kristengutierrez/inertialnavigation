@@ -13,5 +13,4 @@
 extern NSString *const NotificationKeysSignedIn;
 extern NSString *const SegueToMap;
 
-
 @end
