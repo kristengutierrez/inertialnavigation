@@ -17,7 +17,6 @@
 
 @end
 
-
 @implementation SettingsViewController
 
 - (IBAction)didTapLogout:(id)sender {
