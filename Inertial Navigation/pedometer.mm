@@ -1,6 +1,6 @@
 //@import CoreMotion;
 #import <CoreMotion/CoreMotion.h>
-#import "PedoemeterViewController.h"
+#import "PedometerViewController.h"
 
 @interface PedoemeterViewController()
 
